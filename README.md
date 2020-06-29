@@ -1,2 +1,3 @@
 # corona-track
-My version of a corona virus tracker built using SwiftUI.
+This project is a coronavirus statistics tracker utilizing Swift and the UI framework SwiftUI. It required extrapolating the data from an open-source API for the statistics. It features a tab bar view with the first page containing overall stats and the second page containing statistics for each country.
+
