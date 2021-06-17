@@ -39,7 +39,7 @@ struct ContentView: View {
                         ZStack {
                             Rectangle().foregroundColor(Color.red).cornerRadius(10)
                             HStack {
-                                Image("skullicon").foregroundColor(Color.white)
+                                Image(systemName: "heart.slash.fill").foregroundColor(Color.white)
                                 Text(String(country.deaths)).foregroundColor(Color.white)
                             }.padding(.vertical, 20)
                         }.padding()
