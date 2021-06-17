@@ -20,14 +20,57 @@ struct DashboardView: View {
     var body: some View {
         NavigationView {
             VStack {
-                HStack(alignment: .lastTextBaseline) {
-                    BarView(type: "Confirmed", vvalue: model.patients.confirmed, color: Color.blue)
-                    BarView(type: "Deaths", vvalue: model.patients.deaths, color: Color.red)
-                    BarView(type: "Recovered", vvalue: model.patients.recovered, color: Color.green)
-//                    ForEach(self.patients, id: \.type) { patient in
-//                        BarView(patient: patient)
-//                    }
-                }
+                ZStack {
+                    Rectangle().foregroundColor(.blue).cornerRadius(25)
+                    VStack {
+                        HStack {
+                            ZStack {
+                                Rectangle().cornerRadius(25).foregroundColor(.init(.sRGB, white: 1.0, opacity: 0.6)).frame(maxHeight:0.05*UIScreen.main.bounds.height )
+                                Text("Confirmed").font(.headline).bold().foregroundColor(.white)
+                            }.padding()
+                            Spacer()
+                        }
+                        Text(String(Int(model.patients.confirmed))).font(.title).bold().foregroundColor(.white)
+                        Spacer()
+                    }
+                }.shadow(radius: 10).padding().frame(minHeight: 0, maxHeight: 0.3*UIScreen.main.bounds.height).cornerRadius(25)
+                ZStack {
+                    Rectangle().foregroundColor(.red).cornerRadius(25)
+                    VStack {
+                        HStack {
+                            ZStack {
+                                Rectangle().cornerRadius(25).foregroundColor(.init(.sRGB, white: 1.0, opacity: 0.6)).frame(maxHeight:0.05*UIScreen.main.bounds.height )
+                                Text("Deaths").font(.headline).bold().foregroundColor(.white)
+                            }.padding()
+                            Spacer()
+                        }
+                        Text(String(Int(model.patients.deaths))).font(.title).bold().foregroundColor(.white)
+                        Spacer()
+                    }
+                }.shadow(radius: 10).padding().frame(minHeight: 0, maxHeight: 0.3*UIScreen.main.bounds.height).cornerRadius(25)
+                ZStack {
+                    Rectangle().foregroundColor(.green).cornerRadius(25)
+                    VStack {
+                        HStack {
+                            ZStack {
+                                Rectangle().cornerRadius(25).foregroundColor(.init(.sRGB, white: 1.0, opacity: 0.6)).frame(maxHeight:0.05*UIScreen.main.bounds.height )
+                                Text("Recovered").font(.headline).bold().foregroundColor(.white)
+                            }.padding()
+                            Spacer()
+                        }
+                        Text(String(Int(model.patients.recovered))).font(.title).bold().foregroundColor(.white)
+                        Spacer()
+                    }
+                }.shadow(radius: 10).padding().frame(minHeight: 0, maxHeight: 0.3*UIScreen.main.bounds.height).cornerRadius(25)
+                
+//                HStack(alignment: .lastTextBaseline) {
+//                    BarView(type: "Confirmed", vvalue: model.patients.confirmed, color: Color.blue)
+//                    BarView(type: "Deaths", vvalue: model.patients.deaths, color: Color.red)
+//                    BarView(type: "Recovered", vvalue: model.patients.recovered, color: Color.green)
+////                    ForEach(self.patients, id: \.type) { patient in
+////                        BarView(patient: patient)
+////                    }
+//                }
             Spacer()
                 .navigationBarTitle(Text("Dashboard"))
             }
@@ -43,7 +86,7 @@ struct BarView: View {
     
     var body: some View {
         
-        let value = vvalue / 5000
+        let value = vvalue / 500000
         let yValue = Swift.min(value * 20, 600)
         
         return VStack {
