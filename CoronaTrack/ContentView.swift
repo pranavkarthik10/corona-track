@@ -34,24 +34,23 @@ struct ContentView: View {
                             HStack {
                                 Image(systemName: "staroflife").foregroundColor(Color.white)
                                 Text(String(country.confirmed)).foregroundColor(Color.white)
-                            }
-                        }
+                            }.padding(.vertical, 20)
+                        }.padding()
                         ZStack {
                             Rectangle().foregroundColor(Color.red).cornerRadius(10)
                             HStack {
                                 Image("skullicon").foregroundColor(Color.white)
                                 Text(String(country.deaths)).foregroundColor(Color.white)
-                            }
-                        }
-                        ZStack {
-                            Rectangle().foregroundColor(Color.green).cornerRadius(CGFloat(10))
-                            HStack {
-                                Image(systemName: "heart").foregroundColor(Color.white)
-                                Text(String(country.recovered)).foregroundColor(Color.white)
-                            }
-                        }
-                        Spacer()
+                            }.padding(.vertical, 20)
+                        }.padding()
                     }
+                    ZStack {
+                        Rectangle().foregroundColor(Color.green).cornerRadius(CGFloat(10))
+                        HStack {
+                            Image(systemName: "heart").foregroundColor(Color.white)
+                            Text(String(country.recovered)).foregroundColor(Color.white)
+                        }.padding(.vertical, 20)
+                    }.padding()
                 }
             }
             .navigationBarTitle(Text("CoronaTrack"))
